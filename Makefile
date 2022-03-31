@@ -34,3 +34,7 @@ compose-stop: ### Stop services
 .PHONY: compose-down
 compose-down: ### Stop and remove containers, networks
 	docker-compose down --remove-orphans
+
+.PHONY: docker-clean
+docker-clean: ### Remove unused data
+	docker system prune
