@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile
+    container_name: nginx
+    networks:
+      - nginx
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./confs/sites-available:/etc/nginx/sites-available
+      - ./confs/nginx.conf:/etc/nginx/nginx.conf
+      - ./confs/snippets:/etc/nginx/snippets
+      - ./certs:/etc/letsencrypt/live
+      - /var/www:/var/www
+
+networks:
+  nginx:
+    name: nginx
+    driver: bridge
