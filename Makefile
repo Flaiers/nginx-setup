@@ -28,13 +28,13 @@ compose-restart: ## Restart services
 	docker-compose restart
 
 .PHONY: compose-stop
-compose-stop: ### Stop services
+compose-stop: ## Stop services
 	docker-compose stop
 
 .PHONY: compose-down
-compose-down: ### Stop and remove containers, networks
+compose-down: ## Stop and remove containers, networks
 	docker-compose down --remove-orphans
 
 .PHONY: docker-clean
-docker-clean: ### Remove unused data
+docker-clean: ## Remove unused data
 	docker system prune
